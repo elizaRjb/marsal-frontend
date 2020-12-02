@@ -11,6 +11,9 @@
 # production
 /build
 
+# asset build
+src/**/*.css
+
 # misc
 .DS_Store
 .env.local
@@ -21,3 +24,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+yarn.lock
+package-lock.json
+
+.eslintcache
