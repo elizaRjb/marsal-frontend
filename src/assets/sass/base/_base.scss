@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  font-size: 100%;
+  height: 100%;
+}
+
+body {
+  color: $black;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: $font-family--secondary;
+}
+
+a {
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+a,
+span,
+strong,
+font,
+em {
+  &::after {
+    @extend %clearfix-none;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+//Scalable and Modular Architecture for CSS (SMACSS)
+//With SMACSS, we divide our styles into fives categories: base, layout, modules, states, and themes
