@@ -1,0 +1,99 @@
+.header {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  z-index: 500;
+  padding: 15px 0;
+  position: absolute;
+  background-color: $white;
+  border-bottom: 1px solid $mischka;
+
+  @include mq(md) {
+    position: fixed;
+  }
+
+  @include e(container) {
+    display: flex;
+    padding: 0 30px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @include e(logo) {
+    width: 126px;
+    display: inline-block;
+  }
+
+  @include e(right-section) {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 186px);
+    justify-content: space-between;
+  }
+
+  @include e(project-name) {
+    color: $black;
+    text-transform: uppercase;
+    font: normal $font-weight--bold 24px/1.25 $font-family--primary;
+  }
+
+  @include e(name-tag) {
+    cursor: pointer;
+
+    @each $color, $color-value in $color-schemes {
+      @include m($color) {
+        border-color: $color-value;
+        background-color: rgba($color-value, 0.75);
+      }
+    }
+  }
+
+  @include e(dropdown) {
+    outline: none;
+    position: relative;
+  }
+
+  @include e(dropdown-list) {
+    left: auto;
+    right: -10px;
+    bottom: auto;
+    width: 120px;
+    position: absolute;
+    border-radius: 2px;
+    top: calc(100% + 8px);
+    background-color: $white;
+    border: 1px solid $mischka;
+    -moz-box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+
+    li {
+      color: $black;
+      cursor: pointer;
+      padding: 8px 16px;
+      font: normal normal 14px $font-family--secondary;
+
+      &:first-child {
+        position: relative;
+
+        &::before {
+          top: -6px;
+          right: 19px;
+          content: '';
+          width: 10px;
+          height: 10px;
+          position: absolute;
+          background-color: $white;
+          transform: rotate(45deg);
+          border: 1px solid $mischka;
+          border-width: 1px 0px 0px 1px;
+        }
+      }
+
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+}

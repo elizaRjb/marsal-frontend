@@ -1,0 +1,23 @@
+.priority-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: $caribbean-green;
+
+  @include m(dark-orange) {
+    background-color: $dark-orange;
+  }
+
+  @include m(gray) {
+    background-color: $iron;
+  }
+
+  @include m(yellow) {
+    background-color: $amber;
+  }
+
+  @include m(orange) {
+    background-color: $crusta;
+  }
+}

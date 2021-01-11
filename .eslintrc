@@ -35,10 +35,10 @@
     "react/prop-types": 0,
     "react/display-name": 0,
     "require-jsdoc": [
-      "error",
+      "warn",
       {
         "require": {
-          "FunctionDeclaration": true,
+          "FunctionDeclaration": false,
           "MethodDefinition": false,
           "ClassDeclaration": false,
           "ArrowFunctionExpression": false,

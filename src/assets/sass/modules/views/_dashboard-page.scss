@@ -1,0 +1,11 @@
+.dashboard-page {
+  width: 100%;
+  display: flex;
+  padding-top: 60px;
+  position: relative;
+
+  @include e(body) {
+    width: 100%;
+    display: flex;
+  }
+}

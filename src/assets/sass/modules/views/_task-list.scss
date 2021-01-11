@@ -1,0 +1,78 @@
+.task-list {
+  margin: 0 -30px;
+
+  li {
+    cursor: pointer;
+    padding: 0 30px;
+    border: 1px solid transparent;
+    border-width: 1px 0 1px 0;
+
+    &:hover {
+      background-color: $solitude;
+      border-color: $mischka;
+
+      .task-list__details {
+        border-bottom-color: transparent;
+      }
+    }
+  }
+
+  li + li {
+    margin-top: -2px;
+  }
+
+  @include e(details) {
+    display: flex;
+    padding: 4px 0;
+    line-height: 1.2;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $mischka;
+    font-family: $font-family--secondary;
+  }
+
+  @include e(task-icon) {
+    width: 12px;
+  }
+
+  @include e(name) {
+    padding: 0 4px;
+    font-size: 14px;
+    overflow: hidden;
+    line-height: 1.25;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: calc(100% - 166px);
+    color: rgba($black, 0.75);
+  }
+
+  @include e(tag) {
+    width: 60px;
+    padding: 0 4px;
+    color: $silver;
+    font-size: 12px;
+    text-align: right;
+  }
+
+  @include e(date) {
+    width: 50px;
+    padding: 0 4px;
+    color: $silver;
+    font-size: 12px;
+    text-align: right;
+  }
+
+  @include e(date-icon) {
+    width: 20px;
+  }
+
+  @include e(user) {
+    width: 32px;
+    padding: 0 8px 0 4px;
+  }
+
+  @include e(priority) {
+    width: 12px;
+    height: 12px;
+  }
+}

@@ -1,0 +1,43 @@
+.input {
+  margin-bottom: 20px;
+
+  @include e(label) {
+    margin-bottom: 8px;
+    display: inline-block;
+    font: normal $font-weight--medium 12px/1.25 $font-family--secondary;
+  }
+
+  @include e(field) {
+    width: 100%;
+    outline: none;
+    color: $black;
+    padding: 9px 20px;
+    border-radius: 2px;
+    border: 1px solid $mischka;
+    font: normal normal 16px/1.25 $font-family--secondary;
+
+    &:focus {
+      border-color: $primary-color;
+    }
+
+    &::-webkit-input-placeholder {
+      color: rgba($black, 0.3);
+    }
+
+    @include m(error) {
+      border-color: $error-color;
+    }
+
+    @include m(textarea) {
+      resize: none;
+      height: 100px;
+    }
+  }
+
+  @include e(error) {
+    margin-top: 6px;
+    color: $error-color;
+    display: inline-block;
+    font: normal normal 12px $font-family--secondary;
+  }
+}
