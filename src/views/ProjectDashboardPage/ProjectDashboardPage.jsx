@@ -62,7 +62,7 @@ class ProjectDashboardPage extends Component {
       tasksList.push(task);
       this.setState({ tasksList, taskLoading: false });
 
-      history.push(`/project/${projectId}/${task._id}`);
+      history.push(`/project/${projectId}/t/${task._id}`);
     };
 
     const callbackError = error => {
@@ -108,7 +108,7 @@ class ProjectDashboardPage extends Component {
       },
     } = this.props;
 
-    history.push(`/project/${projectId}/${task._id}`);
+    history.push(`/project/${projectId}/t/${task._id}`);
   };
 
   render() {

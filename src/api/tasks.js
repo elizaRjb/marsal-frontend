@@ -13,6 +13,12 @@ class TasksApi {
     return request(url, 'get');
   }
 
+  static deleteTask(projectId, data) {
+    const url = `projects/${projectId}/tasks`;
+
+    return request(url, 'delete', data);
+  }
+
   static getTaskDetails(projectId, taskId) {
     const url = `projects/${projectId}/tasks/${taskId}`;
 

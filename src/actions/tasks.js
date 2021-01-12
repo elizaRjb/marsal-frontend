@@ -1,4 +1,5 @@
 export const CREATE_TASK = 'CREATE_TASK';
+export const DELETE_TASK = 'DELETE_TASK';
 export const GET_SUB_TASKS = 'GET_SUB_TASKS';
 export const GET_TASKS_LIST = 'GET_TASKS_LIST';
 export const GET_TASK_DETAILS = 'GET_TASK_DETAILS';
@@ -9,6 +10,16 @@ export function createTask(projectId, parentTaskId = '', callbackSuccess = null,
     type: CREATE_TASK,
     projectId,
     parentTaskId,
+    callbackSuccess,
+    callbackError,
+  };
+}
+
+export function deleteTask(projectId, taskId, callbackSuccess = null, callbackError = null) {
+  return {
+    type: DELETE_TASK,
+    projectId,
+    taskId,
     callbackSuccess,
     callbackError,
   };

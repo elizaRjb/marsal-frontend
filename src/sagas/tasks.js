@@ -3,7 +3,14 @@ import { takeLatest, call, all } from 'redux-saga/effects';
 
 import TasksApi from 'api/tasks';
 
-import { GET_TASKS_LIST, CREATE_TASK, GET_TASK_DETAILS, GET_SUB_TASKS, UPDATE_TASK_DETAILS } from 'actions/tasks';
+import {
+  GET_TASKS_LIST,
+  CREATE_TASK,
+  GET_TASK_DETAILS,
+  GET_SUB_TASKS,
+  UPDATE_TASK_DETAILS,
+  DELETE_TASK,
+} from 'actions/tasks';
 
 /* Get tasks list */
 function* handleGetTasksListRequest(action) {
@@ -170,6 +177,39 @@ function* watchCreateTaskRequest() {
   yield takeLatest(CREATE_TASK, handleCreateTaskRequest);
 }
 
+/* Delete task */
+function* handleDeleteTaskRequest(action) {
+  const { projectId, taskId, callbackSuccess, callbackError } = action;
+
+  try {
+    const res = yield call(TasksApi.deleteTask, projectId, { taskId });
+
+    if (!res) {
+      throw new Error('connection error');
+    }
+
+    if ('error' in res) {
+      throw new Error(res.error);
+    }
+
+    if (callbackSuccess) {
+      callbackSuccess();
+    }
+  } catch (e) {
+    const errMsg = `Delete Task Request Error: ${e.message}`;
+
+    console.error(errMsg);
+
+    if (callbackError) {
+      callbackError(e.message);
+    }
+  }
+}
+
+function* watchDeleteTaskRequest() {
+  yield takeLatest(DELETE_TASK, handleDeleteTaskRequest);
+}
+
 export default function* taskSaga() {
   yield all([
     watchGetTasksListRequest(),
@@ -177,5 +217,6 @@ export default function* taskSaga() {
     watchGetTaskDetailsRequest(),
     watchSubTasksRequest(),
     watchUpdateTaskDetailsRequest(),
+    watchDeleteTaskRequest(),
   ]);
 }
