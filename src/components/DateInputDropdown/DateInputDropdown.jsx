@@ -1,6 +1,10 @@
+/* eslint-disable no-console */
 import React, { Component } from 'react';
+import { SingleDatePicker } from 'react-dates';
 
-import { CALENDAR_ICON_EMPTY } from 'utils/images';
+import moment from 'moment';
+
+import { CALENDAR_ICON_EMPTY, CALENDAR_ICON_BLUE } from 'utils/images';
 
 class DateInputDropdown extends Component {
   constructor(props) {
@@ -8,7 +12,6 @@ class DateInputDropdown extends Component {
 
     this.state = {
       showDropdown: false,
-      selectedDate: this.props.value,
     };
   }
 
@@ -20,34 +23,42 @@ class DateInputDropdown extends Component {
     this.setState({ showDropdown: false });
   };
 
-  handleDropdownItemClick = selectedUserId => {
-    const { usersList } = this.props;
+  handleDateChange = date => {
+    const { onDateChange } = this.props;
 
-    const selectedUser = usersList.find(user => {
-      return user.userId === selectedUserId;
-    });
+    const selectedDate = date ? moment(date).format() : null;
 
-    this.setState({ selectedUser, showDropdown: false });
+    onDateChange(selectedDate);
   };
 
   render() {
-    const { showDropdown } = this.state;
+    const { dateValue } = this.props;
 
-    const dropdownClassName = showDropdown ? 'dropdown dropdown dropdown--open' : 'dropdown';
+    const selectedDate = dateValue ? moment(dateValue) : null;
 
-    const inputDate = (
-      <div className="dropdown__text-block dropdown__text-block--empty">
-        <img className="dropdown__text-block-icon" src={CALENDAR_ICON_EMPTY} alt="No due date" aria-hidden={true} />
-        <span>No due date</span>
-      </div>
+    const inputIcon = dateValue ? (
+      <img src={CALENDAR_ICON_BLUE} alt="date" aria-hidden={true} />
+    ) : (
+      <img src={CALENDAR_ICON_EMPTY} alt="no due date" aria-hidden={true} />
     );
 
     return (
-      <div className={dropdownClassName} tabIndex="0" onBlur={this.closeDropdown}>
-        <div className="dropdown__text" onClick={this.toggleDropdown}>
-          {inputDate}
-        </div>
-      </div>
+      <SingleDatePicker
+        date={selectedDate}
+        onDateChange={this.handleDateChange}
+        focused={this.state.focused}
+        onFocusChange={({ focused }) => this.setState({ focused })}
+        id="dueDate"
+        readOnly
+        showClearDate
+        displayFormat="MMM D"
+        customInputIcon={inputIcon}
+        numberOfMonths={1}
+        verticalSpacing={0}
+        anchorDirection="right"
+        placeholder="No due date"
+        horizontalMargin={0}
+      />
     );
   }
 }

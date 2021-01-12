@@ -1,7 +1,9 @@
 import React from 'react';
 
+import TextareaAutosize from 'react-autosize-textarea';
+
 const TaskInput = props => {
-  const { className, name, disabled, placeholder = '', value, onChange } = props;
+  const { className, name, disabled, placeholder = '', value, onChange, rows = 1 } = props;
 
   let taskInputClassName = 'task-details__input ';
 
@@ -9,13 +11,16 @@ const TaskInput = props => {
     taskInputClassName += className;
   }
 
-  const text = value ? value : placeholder;
-
   return (
-    <div className={taskInputClassName}>
-      <div className="task-details__input-placeholder">{text}</div>
-      <textarea placeholder={placeholder} name={name} onChange={onChange} disabled={disabled} value={value}></textarea>
-    </div>
+    <TextareaAutosize
+      name={name}
+      disabled={disabled}
+      placeholder={placeholder}
+      onChange={onChange}
+      className={taskInputClassName}
+      rows={rows}
+      value={value}
+    ></TextareaAutosize>
   );
 };
 

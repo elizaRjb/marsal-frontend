@@ -84,12 +84,27 @@
       &:hover {
         background-color: rgba($primary-color, 0.15);
       }
+
+      &.dropdown__action-item {
+        padding: 6px 8px;
+        cursor: default;
+        border-top: 1px solid $mischka;
+
+        &:hover {
+          background: none;
+        }
+      }
     }
 
     @include m(lg) {
       right: auto;
       width: 245px;
     }
+  }
+
+  @include e(list-btn) {
+    padding: 4px 8px;
+    font: normal $font-weight--medium 10px $font-family--primary;
   }
 
   @include m(open) {

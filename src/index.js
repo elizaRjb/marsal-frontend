@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import 'react-dates/initialize';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import 'react-dates/lib/css/_datepicker.css';
 import 'assets/sass/style.css';
 
 ReactDOM.render(

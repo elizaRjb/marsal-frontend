@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { Component } from 'react';
 
 import { TASK_PRIORITIES } from 'utils/constants';
@@ -10,7 +11,6 @@ class PriorityDropdown extends Component {
 
     this.state = {
       showDropdown: false,
-      value: this.props.value,
     };
   }
 
@@ -23,15 +23,16 @@ class PriorityDropdown extends Component {
   };
 
   handleDropdownItemClick = selectedItem => {
-    // const { onDropdownItemClick } = this.props;
+    const { onDropdownItemClick } = this.props;
 
-    // onDropdownItemClick(selectedItem);
+    onDropdownItemClick('priority', selectedItem);
 
-    this.setState({ value: selectedItem, showDropdown: false });
+    this.setState({ showDropdown: false });
   };
 
   render() {
-    const { showDropdown, value } = this.state;
+    const { showDropdown } = this.state;
+    const { value } = this.props;
 
     const dropdownClassName = showDropdown ? 'dropdown dropdown--open' : 'dropdown';
 

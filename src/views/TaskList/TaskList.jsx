@@ -1,8 +1,12 @@
 /* eslint-disable no-console */
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import moment from 'moment';
 
-import { CHECKBOX_ICON_BLUE, CALENDAR_ICON_EMPTY } from 'utils/images';
 import { getInitialsFromName } from 'utils/utils';
+import { CHECKBOX_ICON_BLUE, CALENDAR_ICON_EMPTY } from 'utils/images';
+
+import { getUserDetailsOfProject } from 'services/projectService';
 
 import NameTag from 'components/NameTag/NameTag';
 import PriorityIcon from 'components/PriorityIcon/PriorityIcon';
@@ -19,17 +23,28 @@ class TaskList extends Component {
       return <img className="task-list__date-icon" src={CALENDAR_ICON_EMPTY} alt="No date" title="No due date" />;
     }
 
-    return <span>{dueDate}</span>;
+    return <span>{moment(dueDate).format('MMM DD')}</span>;
   };
 
   getAssignedUser = assignedTo => {
-    if (!assignedTo || !Object.keys(assignedTo).length || !assignedTo.name) {
+    const { projectId } = this.props;
+
+    if (!assignedTo || !Object.keys(assignedTo).length || !assignedTo.userId) {
       return <NameTag title="Unassigned" className="task-list__nametag" empty={true} size="sm" />;
     }
 
-    const nameInitials = getInitialsFromName(assignedTo.name);
+    const user = getUserDetailsOfProject(projectId, assignedTo.userId);
 
-    return <NameTag title={assignedTo.name} className="task-list__nametag" size="sm" initials={nameInitials} />;
+    const nameInitials = getInitialsFromName(user.name);
+
+    return (
+      <NameTag
+        title={assignedTo.name}
+        className={`task-list__nametag--${user.colorScheme}`}
+        size="sm"
+        initials={nameInitials}
+      />
+    );
   };
 
   getTasksList = () => {
@@ -60,4 +75,4 @@ class TaskList extends Component {
   }
 }
 
-export default TaskList;
+export default withRouter(TaskList);

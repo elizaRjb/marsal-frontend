@@ -10,7 +10,6 @@ class UserDropdown extends Component {
 
     this.state = {
       showDropdown: false,
-      selectedUser: this.props.value,
     };
   }
 
@@ -23,19 +22,21 @@ class UserDropdown extends Component {
   };
 
   handleDropdownItemClick = selectedUserId => {
-    const { usersList } = this.props;
+    const { usersList, onDropdownItemClick } = this.props;
 
     const selectedUser = usersList.find(user => {
       return user.userId === selectedUserId;
     });
 
-    this.setState({ selectedUser, showDropdown: false });
+    onDropdownItemClick(selectedUser);
+
+    this.setState({ showDropdown: false });
   };
 
   render() {
-    const { showDropdown, selectedUser } = this.state;
+    const { showDropdown } = this.state;
 
-    const { usersList } = this.props;
+    const { usersList, selectedUser } = this.props;
 
     const dropdownClassName = showDropdown ? 'dropdown dropdown dropdown--open' : 'dropdown';
 
@@ -46,7 +47,7 @@ class UserDropdown extends Component {
       </div>
     );
 
-    if (selectedUser && Object.keys(selectedUser).length) {
+    if (selectedUser && Object.keys(selectedUser).length && selectedUser.userId) {
       user = (
         <div className="dropdown__text-block">
           <NameTag
@@ -78,6 +79,11 @@ class UserDropdown extends Component {
                 </li>
               );
             })}
+            <li className="dropdown__action-item">
+              <div className="button button--ghost dropdown__list-btn" onClick={() => this.handleDropdownItemClick({})}>
+                Unassign
+              </div>
+            </li>
           </ul>
         )}
       </div>

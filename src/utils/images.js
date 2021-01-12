@@ -4,6 +4,7 @@ import TEAMWORK from 'assets/images/teamwork.jpg';
 import USER_ICON_EMPTY from 'assets/images/user-empty.svg';
 import PLUS_ICON_BLUE from 'assets/images/plus-icon-blue.svg';
 import CHECKBOX_ICON_BLUE from 'assets/images/checkbox-blue.svg';
+import CALENDAR_ICON_BLUE from 'assets/images/calendar-blue.svg';
 import CALENDAR_ICON_EMPTY from 'assets/images/calendar-empty.svg';
 
 import DASHBOARD_ICON_GREEN from 'assets/images/dashboard-icon-green.svg';
@@ -27,6 +28,7 @@ export {
   USER_ICON_EMPTY,
   CHECKBOX_ICON_BLUE,
   PLUS_ICON_BLUE,
+  CALENDAR_ICON_BLUE,
   CALENDAR_ICON_EMPTY,
   DASHBOARD_ICONS,
 };

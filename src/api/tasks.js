@@ -19,6 +19,12 @@ class TasksApi {
     return request(url, 'get');
   }
 
+  static updateTaskDetails(projectId, taskId, data) {
+    const url = `projects/${projectId}/tasks/${taskId}`;
+
+    return request(url, 'put', data);
+  }
+
   static getSubTasks(projectId, taskId) {
     const url = `projects/${projectId}/tasks/${taskId}/subtasks`;
 

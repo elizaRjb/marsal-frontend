@@ -62,7 +62,7 @@ class ProjectDashboardPage extends Component {
       tasksList.push(task);
       this.setState({ tasksList, taskLoading: false });
 
-      history.push(`project/${projectId}/${task._id}`);
+      history.push(`/project/${projectId}/${task._id}`);
     };
 
     const callbackError = error => {
@@ -80,7 +80,7 @@ class ProjectDashboardPage extends Component {
     }
 
     const inProgressTasks = tasksList.filter(task => {
-      return task.stage !== 'Backlog' && task.stage !== 'Done';
+      return task.stage !== 'Backlog' && task.stage !== 'Done' && task.parentTaskId === '';
     });
 
     return inProgressTasks;
@@ -94,7 +94,7 @@ class ProjectDashboardPage extends Component {
     }
 
     const backlogTasks = tasksList.filter(task => {
-      return task.stage === 'Backlog';
+      return task.stage === 'Backlog' && task.parentTaskId === '';
     });
 
     return backlogTasks;
@@ -108,12 +108,17 @@ class ProjectDashboardPage extends Component {
       },
     } = this.props;
 
-    history.push(`project/${projectId}/${task._id}`);
+    history.push(`/project/${projectId}/${task._id}`);
   };
 
   render() {
     const { isLoading } = this.state;
-    const { taskOpen } = this.props;
+    const {
+      taskOpen,
+      match: {
+        params: { projectId },
+      },
+    } = this.props;
 
     if (isLoading) {
       return <div>Loading...</div>;
@@ -134,7 +139,7 @@ class ProjectDashboardPage extends Component {
             <span className="project-dashboard__block-sub-heading">{inProgressTasks.length} tasks</span>
           </div>
           {inProgressTasks.length ? (
-            <TaskList tasks={inProgressTasks} handleClick={this.onTaskClick} />
+            <TaskList tasks={inProgressTasks} handleClick={this.onTaskClick} projectId={projectId} />
           ) : (
             <ProjectDashboardEmptyState text="There are no tasks on the board." />
           )}
@@ -145,7 +150,7 @@ class ProjectDashboardPage extends Component {
             <span className="project-dashboard__block-sub-heading">{backlogTasks.length} tasks</span>
           </div>
           {backlogTasks.length ? (
-            <TaskList tasks={backlogTasks} handleClick={this.onTaskClick} />
+            <TaskList tasks={backlogTasks} handleClick={this.onTaskClick} projectId={projectId} />
           ) : (
             <ProjectDashboardEmptyState text="There are no tasks in backlog." />
           )}

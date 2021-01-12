@@ -3,7 +3,7 @@ import { takeLatest, call, all } from 'redux-saga/effects';
 
 import TasksApi from 'api/tasks';
 
-import { GET_TASKS_LIST, CREATE_TASK, GET_TASK_DETAILS, GET_SUB_TASKS } from 'actions/tasks';
+import { GET_TASKS_LIST, CREATE_TASK, GET_TASK_DETAILS, GET_SUB_TASKS, UPDATE_TASK_DETAILS } from 'actions/tasks';
 
 /* Get tasks list */
 function* handleGetTasksListRequest(action) {
@@ -40,10 +40,10 @@ function* watchGetTasksListRequest() {
 
 /* Get sub tasks */
 function* handleSubTasksRequest(action) {
-  const { projectId, callbackSuccess, callbackError } = action;
+  const { projectId, taskId, callbackSuccess, callbackError } = action;
 
   try {
-    const res = yield call(TasksApi.getSubTasks, projectId);
+    const res = yield call(TasksApi.getSubTasks, projectId, taskId);
 
     if (!res) {
       throw new Error('connection error');
@@ -104,6 +104,39 @@ function* watchGetTaskDetailsRequest() {
   yield takeLatest(GET_TASK_DETAILS, handleGetTaskDetailsRequest);
 }
 
+/* Update task details */
+function* handleUpdateTaskDetailsRequest(action) {
+  const { projectId, taskId, data, callbackSuccess, callbackError } = action;
+
+  try {
+    const res = yield call(TasksApi.updateTaskDetails, projectId, taskId, data);
+
+    if (!res) {
+      throw new Error('connection error');
+    }
+
+    if ('error' in res) {
+      throw new Error(res.error);
+    }
+
+    if (callbackSuccess) {
+      callbackSuccess(res.data.data);
+    }
+  } catch (e) {
+    const errMsg = `Update Task Details Request Error: ${e.message}`;
+
+    console.error(errMsg);
+
+    if (callbackError) {
+      callbackError(e.message);
+    }
+  }
+}
+
+function* watchUpdateTaskDetailsRequest() {
+  yield takeLatest(UPDATE_TASK_DETAILS, handleUpdateTaskDetailsRequest);
+}
+
 /* Create task */
 function* handleCreateTaskRequest(action) {
   const { projectId, parentTaskId, callbackSuccess, callbackError } = action;
@@ -143,5 +176,6 @@ export default function* taskSaga() {
     watchCreateTaskRequest(),
     watchGetTaskDetailsRequest(),
     watchSubTasksRequest(),
+    watchUpdateTaskDetailsRequest(),
   ]);
 }

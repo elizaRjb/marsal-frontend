@@ -2,6 +2,7 @@ export const CREATE_TASK = 'CREATE_TASK';
 export const GET_SUB_TASKS = 'GET_SUB_TASKS';
 export const GET_TASKS_LIST = 'GET_TASKS_LIST';
 export const GET_TASK_DETAILS = 'GET_TASK_DETAILS';
+export const UPDATE_TASK_DETAILS = 'UPDATE_TASK_DETAILS';
 
 export function createTask(projectId, parentTaskId = '', callbackSuccess = null, callbackError = null) {
   return {
@@ -37,6 +38,17 @@ export function getSubTasks(projectId, taskId, callbackSuccess = null, callbackE
     type: GET_SUB_TASKS,
     projectId,
     taskId,
+    callbackSuccess,
+    callbackError,
+  };
+}
+
+export function updateTaskDetails(projectId, taskId, data, callbackSuccess = null, callbackError = null) {
+  return {
+    type: UPDATE_TASK_DETAILS,
+    projectId,
+    taskId,
+    data,
     callbackSuccess,
     callbackError,
   };

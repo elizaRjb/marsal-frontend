@@ -53,13 +53,40 @@ export function getCurrentUserRoleInProject(projectId) {
     return item._id == projectId;
   });
 
-  console.log(project);
-
   const member = project.members.find(member => {
     return member.userId === userId;
   });
 
   return member.role;
+}
+
+/**
+ * Returns user in a project.
+ *
+ * @param {String} projectId
+ * @param {String} userId
+ */
+export function getUserDetailsOfProject(projectId, userId) {
+  const state = getState();
+
+  if (!projectId || !userId || !state || !state.projects) {
+    return '';
+  }
+
+  const {
+    projects: { projects },
+  } = state;
+
+  const project = projects.find(item => {
+    // eslint-disable-next-line eqeqeq
+    return item._id == projectId;
+  });
+
+  const member = project.members.find(member => {
+    return member.userId === userId;
+  });
+
+  return member;
 }
 
 /**

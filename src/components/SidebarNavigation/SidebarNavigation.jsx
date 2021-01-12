@@ -20,7 +20,7 @@ const SidebarNavigation = props => {
             to={`/project/${projectId}/`}
             title="Backlog"
             isActive={() => {
-              return path === PATHS.PROJECT_PATH;
+              return path === PATHS.PROJECT_PATH || path === PATHS.PROJECT_TASK_PATH;
             }}
           >
             Backlog

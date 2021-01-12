@@ -2,7 +2,35 @@
   padding: 30px;
 
   @include e(header) {
+    display: flex;
+    width: 100%;
+    color: $primary-color;
+    align-items: center;
     margin-bottom: 12px;
+    justify-content: space-between;
+  }
+
+  @include e(header-link) {
+    display: inline-block;
+    color: $primary-color;
+    font: normal normal 12px/1.25 $font-family--secondary;
+
+    img {
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    span {
+      vertical-align: middle;
+    }
+
+    &:hover {
+      text-decoration: none;
+
+      span {
+        text-decoration: underline;
+      }
+    }
   }
 
   @include e(header-btn-group) {
@@ -12,6 +40,7 @@
   @include e(header-btn) {
     width: 16px;
     height: 16px;
+    display: inline-block;
     background-position: center;
     background-repeat: no-repeat;
 
@@ -59,51 +88,28 @@
   }
 
   @include e(input) {
-    position: relative;
+    width: 100%;
+    padding: 6px;
+    color: $black;
+    outline: none;
+    border: 1px solid transparent;
+    font: normal normal 14px/1.3 $font-family--secondary;
 
-    textarea {
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      padding: 6px;
-      resize: none;
-      color: $black;
-      outline: none;
-      position: absolute;
-      border: 1px solid transparent;
-      font: normal normal 14px/1.3 $font-family--secondary;
+    &:hover {
+      border-color: $mischka;
+    }
 
-      &:hover {
-        border-color: $mischka;
-      }
+    &:focus {
+      border-color: $primary-color;
+    }
 
-      &:focus {
-        border-color: $primary-color;
-      }
-
-      &::-webkit-input-placeholder {
-        color: rgba($black, 0.3);
-      }
+    &::-webkit-input-placeholder {
+      color: rgba($black, 0.3);
     }
 
     @include m(lg) {
-      textarea {
-        padding: 8px;
-        font-size: 20px;
-      }
-
-      .task-details__input-placeholder {
-        padding: 8px;
-        font-size: 20px;
-      }
-    }
-
-    @include m(long) {
-      .task-details__input-placeholder {
-        min-height: 90px;
-      }
+      padding: 8px;
+      font-size: 20px;
     }
   }
 
@@ -157,5 +163,15 @@
         text-decoration: underline;
       }
     }
+  }
+
+  @include e(section) {
+    margin-top: 16px;
+  }
+
+  @include e(section-title) {
+    color: $gray;
+    margin-bottom: 6px;
+    font: normal $font-weight--medium 12px/1.25 $font-family--secondary;
   }
 }
