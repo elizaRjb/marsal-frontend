@@ -1,0 +1,68 @@
+//Web Address
+$domain-name: 'www.phil.us';
+
+//Text
+$base__font-size: 16px;
+$base__line: 24px;
+
+//Font Stacks
+$font-family--primary: 'Mulish', sans-serif;
+$font-family--secondary: 'Inter', sans-serif;
+
+// Font weights
+$font-weight--bold: 700;
+$font-weight--medium: 500;
+$font-weight--regular: 400;
+$font-weight--semi-bold: 600;
+
+//Colors
+$white: #fff;
+$gray: #888888;
+$black: #292a2e;
+$moody-blue: #6f73d2;
+$mischka: #d1d6dc;
+$rolling-stone: #797c80;
+$havelock-blue: #4ea8de;
+$science-blue: #0466c8;
+$pickled-bluewood: #33415c;
+$pigment-indigo: #390099;
+$red: #ff3c38;
+$amber: #ffbd00;
+$fresh-eggplant: #9e0059;
+$crusta: #ff8427;
+$dark-orange: #ff5400;
+$caribbean-green: #02c39a;
+$endeavour: #0353a4;
+$iron: #d4d6d8;
+$solitude: #edf8ff;
+$silver: #c4c4c4;
+$haiti: #0b132b;
+$heavy-metal: #303a2b;
+$wheat: #edd4b2;
+
+$error-color: $red;
+$primary-color: $havelock-blue;
+
+$color-schemes: (
+  purple: $pigment-indigo,
+  cranberry: $fresh-eggplant,
+  yellow: $amber,
+  orange: $crusta,
+  green: $caribbean-green,
+);
+
+//Breakpoints
+$sm-device: 576px;
+$md-device: 768px;
+$lg-device: 992px;
+$xl-device: 1200px;
+
+// Container max-widths
+$container-max-widths-map: (
+  lg: 964px,
+  xl: 1112px,
+) !default;
+
+//Path to Assets
+$path--rel: '../img';
+$path-font: '../fonts';

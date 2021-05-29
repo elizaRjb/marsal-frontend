@@ -1,0 +1,21 @@
+.Toastify {
+  @include e(toast) {
+    padding: 8px 16px;
+    position: relative;
+    border-radius: 4px 4px 0 0;
+
+    @include m(success) {
+      background-color: $caribbean-green;
+    }
+
+    @include m(error) {
+      background-color: $red;
+    }
+  }
+
+  @include e(close-button) {
+    top: 8px;
+    right: 8px;
+    position: absolute;
+  }
+}

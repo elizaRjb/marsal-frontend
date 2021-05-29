@@ -1,0 +1,79 @@
+.main-page {
+  width: 100%;
+  min-height: 100%;
+  padding: 60px 0 90px;
+
+  @include e(container) {
+    display: flex;
+  }
+
+  @include e(left-section) {
+    width: 48%;
+  }
+
+  @include e(logo) {
+    width: 176px;
+    display: inline-block;
+  }
+
+  @include e(main-text) {
+    color: $black;
+    max-width: 343px;
+    margin-top: 60px;
+    font: normal $font-weight--semi-bold 24px/1.25 $font-family--primary;
+  }
+
+  @include e(sub-text) {
+    color: $gray;
+    margin-top: 50px;
+    max-width: 303px;
+    font: normal normal 16px/1.25 $font-family--secondary;
+  }
+
+  @include e(image) {
+    width: 100%;
+    margin-top: 68px;
+  }
+
+  @include e(right-section) {
+    width: 52%;
+    padding: 72px 0 0 80px;
+  }
+
+  @include e(card) {
+    width: 400px;
+    padding: 30px;
+    margin: 0 auto;
+    box-shadow: 0px 2px 12px 1px rgba(0, 0, 0, 0.05);
+  }
+
+  @include e(card-heading) {
+    text-align: center;
+    margin-bottom: 30px;
+    color: $pickled-bluewood;
+    font: normal $font-weight--semi-bold 16px/1.25 $font-family--secondary;
+  }
+
+  @include e(card-error) {
+    padding: 8px;
+    border-radius: 2px;
+    color: $error-color;
+    margin-bottom: 20px;
+    background-color: rgba($error-color, 0.1);
+    font: normal normal 14px $font-family--secondary;
+  }
+
+  @include e(form-button) {
+    width: 100%;
+    margin-top: 10px;
+    padding: 9px 16px;
+    font: normal $font-weight--bold 18px/1.25 $font-family--primary;
+  }
+
+  @include e(text) {
+    color: $black;
+    margin-top: 40px;
+    text-align: center;
+    font: normal $font-weight--medium 14px/1.25 $font-family--secondary;
+  }
+}

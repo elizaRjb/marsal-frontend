@@ -1,0 +1,208 @@
+.task-details {
+  padding: 30px;
+
+  @include e(header) {
+    display: flex;
+    width: 100%;
+    color: $primary-color;
+    align-items: center;
+    margin-bottom: 12px;
+    justify-content: space-between;
+  }
+
+  @include e(header-link) {
+    display: inline-block;
+    color: $primary-color;
+    font: normal normal 12px/1.25 $font-family--secondary;
+
+    img {
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    span {
+      vertical-align: middle;
+    }
+
+    &:hover {
+      text-decoration: none;
+
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @include e(header-btn-group) {
+    display: flex;
+    text-align: right;
+    align-items: center;
+  }
+
+  @include e(header-dropdown) {
+    outline: none;
+    margin-right: 8px;
+    position: relative;
+  }
+
+  @include e(header-dropdown-list) {
+    width: 120px;
+    border-radius: 2px;
+    background-color: $white;
+    border: 1px solid $mischka;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: auto;
+    bottom: auto;
+    -moz-box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+
+    li {
+      color: $red;
+      cursor: pointer;
+      text-align: left;
+      padding: 6px 12px;
+      font: normal normal 14px $font-family--secondary;
+
+      &:hover {
+        background-color: rgba($primary-color, 0.1);
+      }
+    }
+  }
+
+  @include e(header-btn) {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include m(close) {
+      background-size: 10px;
+      background-image: url('../images/close.svg');
+
+      &:hover,
+      &:focus {
+        background-image: url('../images/close-dark.svg');
+      }
+    }
+
+    @include m(more) {
+      background-size: 12px;
+      background-image: url('../images/more.svg');
+
+      &:hover,
+      &:focus {
+        background-image: url('../images/more-blue.svg');
+      }
+    }
+  }
+
+  @include e(row) {
+    margin: 0 -8px;
+  }
+
+  @include e(form-group) {
+    display: flex;
+    margin: 8px 0;
+    align-items: center;
+
+    @include m(top-align) {
+      align-items: flex-start;
+
+      .task-details__form-label {
+        margin-top: 6px;
+      }
+    }
+  }
+
+  @include e(input) {
+    width: 100%;
+    padding: 6px;
+    color: $black;
+    outline: none;
+    border: 1px solid transparent;
+    font: normal normal 14px/1.3 $font-family--secondary;
+
+    &:hover {
+      border-color: $mischka;
+    }
+
+    &:focus {
+      border-color: $primary-color;
+    }
+
+    &::-webkit-input-placeholder {
+      color: rgba($black, 0.3);
+    }
+
+    @include m(lg) {
+      padding: 8px;
+      font-size: 20px;
+    }
+  }
+
+  @include e(input-placeholder) {
+    opacity: 0;
+    padding: 6px;
+    border: 1px solid transparent;
+    font: normal normal 14px/1.3 $font-family--secondary;
+  }
+
+  @include e(form-label) {
+    width: 95px;
+    color: $gray;
+    font: normal $font-weight--medium 14px/1.3 $font-family--secondary;
+  }
+
+  @include e(form-values) {
+    width: calc(100% - 95px);
+  }
+
+  @include e(body-btn-group) {
+    margin-top: 12px;
+    text-align: right;
+  }
+
+  @include e(form-btn) {
+    min-width: 80px;
+    padding: 6px 12px;
+    font-size: 14px;
+
+    & + & {
+      margin-left: 12px;
+    }
+  }
+
+  @include e(block-button) {
+    display: flex;
+    color: $primary-color;
+    margin: 16px 0 0 0;
+    justify-content: center;
+    font: normal $font-weight--semi-bold 14px/1 $font-family--primary;
+
+    img {
+      width: 12px;
+      margin-right: 6px;
+    }
+
+    &:hover,
+    &:focus {
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @include e(section) {
+    margin-top: 16px;
+  }
+
+  @include e(section-title) {
+    color: $gray;
+    margin-bottom: 6px;
+    font: normal $font-weight--medium 12px/1.25 $font-family--secondary;
+  }
+}

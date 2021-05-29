@@ -1,0 +1,51 @@
+// This file contains the custom container widths
+
+$gutter-width: 30px !default;
+$grid-container: 'container';
+$grid-container-fluid: 'container--fluid';
+
+// Grid breakpoints for container
+$grid-breakpoints: (
+  large: $lg-device,
+  extra-large: $xl-device,
+) !default;
+
+// Max-widths for container grid breakpoints
+$container-max-widths: $container-max-widths-map;
+
+// Common properties for container class
+%common-container {
+  padding-right: ($gutter-width / 2);
+  padding-left: ($gutter-width / 2);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// Container mixin
+// $container-name - class name of container
+@mixin make-container($container-name: $grid-container-fluid) {
+  .#{$container-name} {
+    width: 100%;
+    @extend %common-container;
+  }
+}
+
+// Container mixin - for defining container widths in each breakpoints
+// $max-width      - map with respective breakpoint names and values for container maxwidths
+// Make changes to $container-max-widths map to make changes in container width
+@mixin make-container-fixed-width($max-width: $container-max-widths, $container-name: $grid-container) {
+  @each $size-name, $container-width in $max-width {
+    @include mq($size-name) {
+      .#{$container-name} {
+        width: 100%;
+        max-width: map-get($max-width, $size-name);
+      }
+    }
+  }
+  .#{$container-name} {
+    @extend %common-container;
+  }
+}
+
+@include make-container;
+@include make-container-fixed-width;

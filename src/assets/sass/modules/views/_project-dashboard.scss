@@ -1,0 +1,81 @@
+.project-dashboard {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  @include e(body) {
+    display: flex;
+    width: calc(100% - 186px);
+  }
+
+  @include e(left-section) {
+    flex-grow: 1;
+    padding: 30px;
+
+    @include m(open) {
+      width: 53%;
+    }
+  }
+
+  @include e(block) {
+    & + & {
+      margin-top: 60px;
+    }
+  }
+
+  @include e(block-header) {
+    display: flex;
+    margin-bottom: 25px;
+    align-items: baseline;
+  }
+
+  @include e(block-title) {
+    color: $haiti;
+    margin-right: 16px;
+    text-transform: uppercase;
+    font: normal $font-weight--semi-bold 24px/1.25 $font-family--primary;
+  }
+
+  @include e(block-sub-heading) {
+    color: $rolling-stone;
+    font: normal normal 14px/1.25 $font-family--secondary;
+  }
+
+  @include e(block-button) {
+    display: flex;
+    color: $primary-color;
+    margin: 14px 0 0 16px;
+    justify-content: center;
+    font: normal $font-weight--semi-bold 14px/1 $font-family--primary;
+
+    img {
+      width: 12px;
+      margin-right: 6px;
+    }
+
+    &:hover,
+    &:focus {
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @include e(empty-block) {
+    padding: 14px;
+    border-radius: 4px;
+    text-align: center;
+    color: $rolling-stone;
+    border: 1px dashed $rolling-stone;
+    font: normal normal 16px/1.25 $font-family--secondary;
+  }
+
+  @include e(right-section) {
+    width: 47%;
+    border-left: 1px solid $mischka;
+  }
+
+  @include e(loading-icon) {
+    margin-left: 8px;
+  }
+}
