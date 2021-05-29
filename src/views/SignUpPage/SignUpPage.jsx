@@ -18,7 +18,7 @@ class SignUpPage extends Component {
 
     this.state = {
       isLoading: false,
-      error: '',
+      error: ''
     };
   }
 
@@ -73,12 +73,12 @@ class SignUpPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  isLoggedIn: getIsLoggedIn(state),
+  isLoggedIn: getIsLoggedIn(state)
 });
 
 const mapDispatchToProps = dispatch => ({
   userSignupRequest: (data, callbackSuccess, callbackError) =>
-    dispatch(userSignupRequest(data, callbackSuccess, callbackError)),
+    dispatch(userSignupRequest(data, callbackSuccess, callbackError))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpPage);

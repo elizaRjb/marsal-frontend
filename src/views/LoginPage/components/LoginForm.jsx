@@ -11,15 +11,15 @@ const LoginForm = props => {
   const formik = useFormik({
     initialValues: {
       email: '',
-      password: '',
+      password: ''
     },
     validationSchema: Yup.object({
       email: Yup.string().email('Email format is not valid.').required('This field is required.'),
-      password: Yup.string().min(8, 'Password should be minimum 8 characters.').required('This field is required.'),
+      password: Yup.string().min(8, 'Password should be minimum 8 characters.').required('This field is required.')
     }),
     onSubmit: values => {
       handleSubmit(values);
-    },
+    }
   });
 
   return (

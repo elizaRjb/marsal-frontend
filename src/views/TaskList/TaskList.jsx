@@ -29,8 +29,8 @@ class TaskList extends Component {
   getAssignedUser = assignedTo => {
     const {
       match: {
-        params: { projectId },
-      },
+        params: { projectId }
+      }
     } = this.props;
 
     if (!assignedTo || !Object.keys(assignedTo).length || !assignedTo.userId) {
@@ -55,8 +55,8 @@ class TaskList extends Component {
     const {
       tasks,
       match: {
-        params: { projectId },
-      },
+        params: { projectId }
+      }
     } = this.props;
 
     const taskList = tasks.map(task => {

@@ -16,7 +16,7 @@ const TASK_STAGES = {
   inProgress: 'In Progress',
   inReview: 'In Review',
   inQA: 'In QA',
-  done: 'Done',
+  done: 'Done'
 };
 
 class ProjectBoardPage extends Component {
@@ -26,16 +26,16 @@ class ProjectBoardPage extends Component {
     this.state = {
       tasks: [],
       boardData: {},
-      isLoading: true,
+      isLoading: true
     };
   }
 
   componentDidMount() {
     const {
       match: {
-        params: { projectId },
+        params: { projectId }
       },
-      getTasksList,
+      getTasksList
     } = this.props;
 
     const callbackSuccess = data => {
@@ -70,30 +70,30 @@ class ProjectBoardPage extends Component {
         backlog: {
           id: 'backlog',
           title: TASK_STAGES.backlog,
-          taskIds: backlogTaskIds,
+          taskIds: backlogTaskIds
         },
         inProgress: {
           id: 'inProgress',
           title: TASK_STAGES.inProgress,
-          taskIds: inProgressTaskIds,
+          taskIds: inProgressTaskIds
         },
         inReview: {
           id: 'inReview',
           title: TASK_STAGES.inReview,
-          taskIds: inReviewTaskIds,
+          taskIds: inReviewTaskIds
         },
         inQA: {
           id: 'inQA',
           title: TASK_STAGES.inQA,
-          taskIds: inQATaskIds,
+          taskIds: inQATaskIds
         },
         done: {
           id: 'done',
           title: TASK_STAGES.done,
-          taskIds: doneTaskIds,
-        },
+          taskIds: doneTaskIds
+        }
       },
-      columnOrder: ['backlog', 'inProgress', 'inReview', 'inQA', 'done'],
+      columnOrder: ['backlog', 'inProgress', 'inReview', 'inQA', 'done']
     };
 
     this.setState({ boardData, isLoading: false });
@@ -117,8 +117,8 @@ class ProjectBoardPage extends Component {
     const {
       updateTaskDetails,
       match: {
-        params: { projectId },
-      },
+        params: { projectId }
+      }
     } = this.props;
     const { boardData } = this.state;
     const { destination, source, draggableId } = result;
@@ -142,15 +142,15 @@ class ProjectBoardPage extends Component {
 
       const newColumn = {
         ...start,
-        taskIds: newTaskIds,
+        taskIds: newTaskIds
       };
 
       const newData = {
         ...boardData,
         columns: {
           ...boardData.columns,
-          [newColumn.id]: newColumn,
-        },
+          [newColumn.id]: newColumn
+        }
       };
 
       this.setState({ boardData: newData });
@@ -163,7 +163,7 @@ class ProjectBoardPage extends Component {
 
     const newStart = {
       ...start,
-      taskIds: startTaskIds,
+      taskIds: startTaskIds
     };
 
     const finishTaskIds = Array.from(finish.taskIds);
@@ -177,14 +177,14 @@ class ProjectBoardPage extends Component {
       columns: {
         ...boardData.columns,
         [newStart.id]: newStart,
-        [newFinish.id]: newFinish,
-      },
+        [newFinish.id]: newFinish
+      }
     };
 
     this.setState({ boardData: newData });
 
     const data = {
-      stage: TASK_STAGES[destination.droppableId],
+      stage: TASK_STAGES[destination.droppableId]
     };
 
     const callbackSuccess = () => {
@@ -226,14 +226,14 @@ class ProjectBoardPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  projects: getProjectsList(state),
+  projects: getProjectsList(state)
 });
 
 const mapDispatchToProps = dispatch => ({
   getTasksList: (projectId, callbackSuccess, callbackError) =>
     dispatch(getTasksList(projectId, callbackSuccess, callbackError)),
   updateTaskDetails: (projectId, parentTaskId, data, callbackSuccess, callbackError) =>
-    dispatch(updateTaskDetails(projectId, parentTaskId, data, callbackSuccess, callbackError)),
+    dispatch(updateTaskDetails(projectId, parentTaskId, data, callbackSuccess, callbackError))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectBoardPage));

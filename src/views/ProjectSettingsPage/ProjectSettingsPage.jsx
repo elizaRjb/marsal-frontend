@@ -15,7 +15,7 @@ class ProjectSettingsPage extends Component {
 
     this.state = {
       isLoading: false,
-      error: '',
+      error: ''
     };
   }
 
@@ -23,8 +23,8 @@ class ProjectSettingsPage extends Component {
     const {
       projects,
       match: {
-        params: { projectId },
-      },
+        params: { projectId }
+      }
     } = this.props;
 
     const project = projects.find(project => {
@@ -38,8 +38,8 @@ class ProjectSettingsPage extends Component {
     const {
       addMemberInProject,
       match: {
-        params: { projectId },
-      },
+        params: { projectId }
+      }
     } = this.props;
 
     this.setState({ isLoading: true });
@@ -71,12 +71,12 @@ class ProjectSettingsPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  projects: getProjectsList(state),
+  projects: getProjectsList(state)
 });
 
 const mapDispatchToProps = dispatch => ({
   addMemberInProject: (projectId, data, callbackSuccess, callbackError) =>
-    dispatch(addMemberInProject(projectId, data, callbackSuccess, callbackError)),
+    dispatch(addMemberInProject(projectId, data, callbackSuccess, callbackError))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectSettingsPage));

@@ -15,7 +15,7 @@ class AddProjectModal extends Component {
 
     this.state = {
       isLoading: false,
-      error: '',
+      error: ''
     };
   }
 
@@ -53,8 +53,7 @@ class AddProjectModal extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  createProject: (data, callbackSuccess, callbackError) =>
-    dispatch(createProject(data, callbackSuccess, callbackError)),
+  createProject: (data, callbackSuccess, callbackError) => dispatch(createProject(data, callbackSuccess, callbackError))
 });
 
 const ReduxAddProjectModal = connect(null, mapDispatchToProps)(AddProjectModal);

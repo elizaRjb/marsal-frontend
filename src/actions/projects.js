@@ -9,14 +9,14 @@ export function getProjectsListRequest(callbackSuccess = null, callbackError = n
   return {
     type: GET_PROJECTS_LIST,
     callbackSuccess,
-    callbackError,
+    callbackError
   };
 }
 
 export function setProjectsList(projects) {
   return {
     type: SET_PROJECTS_LIST,
-    projects,
+    projects
   };
 }
 
@@ -25,14 +25,14 @@ export function createProject(data, callbackSuccess = null, callbackError = null
     type: CREATE_PROJECT,
     data,
     callbackSuccess,
-    callbackError,
+    callbackError
   };
 }
 
 export function updateProjectsList(project) {
   return {
     type: UPDATE_PROJECTS_LIST,
-    project,
+    project
   };
 }
 
@@ -42,7 +42,7 @@ export function addMemberInProject(projectId, data, callbackSuccess = null, call
     projectId,
     data,
     callbackSuccess,
-    callbackError,
+    callbackError
   };
 }
 
@@ -50,6 +50,6 @@ export function updateMembersList(projectId, member) {
   return {
     type: UPDATE_MEMBERS_LIST_OF_PROJECT,
     projectId,
-    member,
+    member
   };
 }

@@ -20,7 +20,7 @@ class Header extends Component {
     super(props);
 
     this.state = {
-      dropdownOpen: false,
+      dropdownOpen: false
     };
   }
 
@@ -76,11 +76,11 @@ class Header extends Component {
 
 const mapStateToProps = state => ({
   name: getFullName(state),
-  colorScheme: getUserColorScheme(state),
+  colorScheme: getUserColorScheme(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-  userLogoutRequest: () => dispatch(userLogoutRequest()),
+  userLogoutRequest: () => dispatch(userLogoutRequest())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

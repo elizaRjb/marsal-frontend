@@ -6,14 +6,14 @@ export const USER_LOGOUT_REQUEST = 'USER_LOGOUT_REQUEST';
 export function setAuthTokens(token) {
   return {
     type: SET_AUTH_TOKENS,
-    token,
+    token
   };
 }
 
 export function setLoginDetails(isLoggedIn) {
   return {
     type: SET_LOGIN_DETAILS,
-    isLoggedIn,
+    isLoggedIn
   };
 }
 
@@ -22,12 +22,12 @@ export function userLoginRequest(data, callbackSuccess = null, callbackError = n
     type: USER_LOGIN_REQUEST,
     data,
     callbackSuccess,
-    callbackError,
+    callbackError
   };
 }
 
 export function userLogoutRequest() {
   return {
-    type: USER_LOGOUT_REQUEST,
+    type: USER_LOGOUT_REQUEST
   };
 }

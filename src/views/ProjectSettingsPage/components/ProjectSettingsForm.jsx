@@ -13,16 +13,16 @@ const ProjectSettingsForm = props => {
 
   const formik = useFormik({
     initialValues: {
-      email: '',
+      email: ''
     },
     validationSchema: Yup.object({
-      email: Yup.string().email('Email format is not valid.').required('This field is required.'),
+      email: Yup.string().email('Email format is not valid.').required('This field is required.')
     }),
     onSubmit: values => {
       const { email } = values;
 
       handleSubmit({ email: email.trim() });
-    },
+    }
   });
 
   let members = [];

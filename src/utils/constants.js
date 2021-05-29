@@ -1,6 +1,6 @@
 export const USER_ROLES = {
   admin: 'ADMIN',
-  user: 'USER',
+  user: 'USER'
 };
 
 export const PROJECT_STAGES = ['Backlog', 'In Progress', 'In Review', 'In QA', 'Done'];

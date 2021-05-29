@@ -11,13 +11,13 @@ export function userSignupRequest(data, callbackSuccess = null, callbackError = 
     type: USER_SIGNUP_REQUEST,
     data,
     callbackSuccess,
-    callbackError,
+    callbackError
   };
 }
 
 export function setAccountDetails(details) {
   return {
     type: SET_ACCOUNT_DETAILS,
-    details,
+    details
   };
 }

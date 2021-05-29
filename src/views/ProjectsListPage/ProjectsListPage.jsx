@@ -19,7 +19,7 @@ class ProjectsListPage extends Component {
 
     this.state = {
       isLoading: true,
-      showModal: false,
+      showModal: false
     };
   }
 
@@ -82,12 +82,12 @@ class ProjectsListPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  projectsList: getProjectsList(state),
+  projectsList: getProjectsList(state)
 });
 
 const mapDispatchToProps = dispatch => ({
   getProjectsListRequest: (callbackSuccess, callbackError) =>
-    dispatch(getProjectsListRequest(callbackSuccess, callbackError)),
+    dispatch(getProjectsListRequest(callbackSuccess, callbackError))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectsListPage);

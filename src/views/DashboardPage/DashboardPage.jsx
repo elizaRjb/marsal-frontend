@@ -28,7 +28,7 @@ class DashboardPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  isLoggedIn: getIsLoggedIn(state),
+  isLoggedIn: getIsLoggedIn(state)
 });
 
 export default connect(mapStateToProps, null)(DashboardPage);

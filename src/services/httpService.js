@@ -7,7 +7,7 @@ import { getState } from 'services/reduxService';
 export function getAuthenticatedHeaders() {
   const BASE_HEADERS = {
     Accept: 'application/json',
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/json'
   };
 
   const accessToken = getAccessToken(getState());
@@ -31,7 +31,7 @@ export async function request(url, method = 'get', data) {
     url,
     method,
     headers,
-    data: requestBody,
+    data: requestBody
   };
 
   const res = await http.request(config);

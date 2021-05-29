@@ -15,8 +15,8 @@ const ProjectTaskRoute = ({ component: Component, ...rest }) => {
       render={props => {
         const {
           match: {
-            params: { projectId },
-          },
+            params: { projectId }
+          }
         } = props;
 
         const currentUserRole = getCurrentUserRoleInProject(projectId);

@@ -14,7 +14,7 @@ const SignUpForm = props => {
       lastName: '',
       email: '',
       password: '',
-      confirmPassword: '',
+      confirmPassword: ''
     },
     validationSchema: Yup.object({
       firstName: Yup.string()
@@ -29,13 +29,13 @@ const SignUpForm = props => {
       password: Yup.string().min(8, 'Password should be minimum 8 characters.').required('This field is required.'),
       confirmPassword: Yup.string()
         .oneOf([Yup.ref('password')], 'Passwords do not match.')
-        .required('This field is required.'),
+        .required('This field is required.')
     }),
     onSubmit: values => {
       const { firstName, lastName, email, password } = values;
 
       handleSubmit({ firstName, lastName, email, password });
-    },
+    }
   });
 
   return (

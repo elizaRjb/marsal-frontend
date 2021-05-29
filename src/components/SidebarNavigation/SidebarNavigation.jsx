@@ -9,7 +9,7 @@ const SidebarNavigation = props => {
   const {
     userRole,
     projectId,
-    match: { path },
+    match: { path }
   } = props;
 
   return (

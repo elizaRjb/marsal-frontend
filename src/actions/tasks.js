@@ -17,7 +17,7 @@ export function createTask(projectId, parentTaskId = '', callbackSuccess = null,
     projectId,
     parentTaskId,
     callbackSuccess,
-    callbackError,
+    callbackError
   };
 }
 
@@ -27,7 +27,7 @@ export function deleteTask(projectId, taskId, callbackSuccess = null, callbackEr
     projectId,
     taskId,
     callbackSuccess,
-    callbackError,
+    callbackError
   };
 }
 
@@ -36,7 +36,7 @@ export function getTasksList(projectId, callbackSuccess = null, callbackError = 
     type: GET_TASKS_LIST,
     projectId,
     callbackSuccess,
-    callbackError,
+    callbackError
   };
 }
 
@@ -46,7 +46,7 @@ export function getTaskDetails(projectId, taskId, callbackSuccess = null, callba
     projectId,
     taskId,
     callbackSuccess,
-    callbackError,
+    callbackError
   };
 }
 
@@ -56,7 +56,7 @@ export function getSubTasks(projectId, taskId, callbackSuccess = null, callbackE
     projectId,
     taskId,
     callbackSuccess,
-    callbackError,
+    callbackError
   };
 }
 
@@ -67,7 +67,7 @@ export function updateTaskDetails(projectId, taskId, data, callbackSuccess = nul
     taskId,
     data,
     callbackSuccess,
-    callbackError,
+    callbackError
   };
 }
 
@@ -75,7 +75,7 @@ export function setTasksList(projectId, taskList) {
   return {
     type: SET_TASKS_LIST,
     projectId,
-    taskList,
+    taskList
   };
 }
 
@@ -83,7 +83,7 @@ export function updateTasksList(projectId, task) {
   return {
     type: UPDATE_TASKS_LIST,
     projectId,
-    task,
+    task
   };
 }
 
@@ -92,7 +92,7 @@ export function updateChildrenTasks(projectId, taskId, childTask) {
     type: UPDATE_CHILDREN_TASK_DETAILS,
     projectId,
     taskId,
-    childTask,
+    childTask
   };
 }
 
@@ -100,7 +100,7 @@ export function updateTaskDetailsInStore(projectId, taskDetails) {
   return {
     type: UPDATE_TASK_DETAILS_IN_STORE,
     projectId,
-    taskDetails,
+    taskDetails
   };
 }
 
@@ -108,6 +108,6 @@ export function removeTaskFromStore(projectId, taskId) {
   return {
     type: REMOVE_TASK_FROM_STORE,
     projectId,
-    taskId,
+    taskId
   };
 }

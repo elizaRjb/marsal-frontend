@@ -9,7 +9,7 @@ class UserDropdown extends Component {
     super(props);
 
     this.state = {
-      showDropdown: false,
+      showDropdown: false
     };
   }
 

@@ -14,7 +14,7 @@ import {
   createTask,
   updateTaskDetails,
   deleteTask,
-  updateChildrenTasks,
+  updateChildrenTasks
 } from 'actions/tasks';
 
 import { getMembersListInProject, getTagOfTaskInProject } from 'services/projectService';
@@ -40,7 +40,7 @@ class TaskDetailsPage extends Component {
         stage: '',
         priority: '',
         assignedTo: {},
-        description: '',
+        description: ''
       },
       initialData: {
         name: '',
@@ -48,7 +48,7 @@ class TaskDetailsPage extends Component {
         stage: '',
         priority: '',
         assignedTo: {},
-        description: '',
+        description: ''
       },
       isLoading: true,
       isEditing: false,
@@ -56,15 +56,15 @@ class TaskDetailsPage extends Component {
       subTasks: [],
       usersList: [],
       showMoreOptions: false,
-      isFormSubmitting: false,
+      isFormSubmitting: false
     };
   }
 
   componentDidMount() {
     const {
       match: {
-        params: { projectId },
-      },
+        params: { projectId }
+      }
     } = this.props;
 
     const usersList = getMembersListInProject(projectId);
@@ -86,8 +86,8 @@ class TaskDetailsPage extends Component {
       getTaskDetails,
       getSubTasks,
       match: {
-        params: { projectId, taskId },
-      },
+        params: { projectId, taskId }
+      }
     } = this.props;
 
     const task = this.getTaskFromStore(projectId, taskId);
@@ -108,7 +108,7 @@ class TaskDetailsPage extends Component {
           isLoading: false,
           taskDetails: taskDetailsData,
           initialData: initialTaskData,
-          projectId,
+          projectId
         });
 
         if (data.childrenTasks.length) {
@@ -173,8 +173,8 @@ class TaskDetailsPage extends Component {
       updateChildrenTasks,
       history,
       match: {
-        params: { projectId, taskId },
-      },
+        params: { projectId, taskId }
+      }
     } = this.props;
 
     this.setState({ taskLoading: true });
@@ -197,11 +197,11 @@ class TaskDetailsPage extends Component {
   getParentTaskLink = () => {
     const {
       match: {
-        params: { projectId },
-      },
+        params: { projectId }
+      }
     } = this.props;
     const {
-      taskDetails: { parentTaskId },
+      taskDetails: { parentTaskId }
     } = this.state;
 
     const taskTag = getTagOfTaskInProject(projectId, parentTaskId);
@@ -277,8 +277,8 @@ class TaskDetailsPage extends Component {
     const {
       updateTaskDetails,
       match: {
-        params: { projectId, taskId },
-      },
+        params: { projectId, taskId }
+      }
     } = this.props;
 
     event.preventDefault();
@@ -289,7 +289,7 @@ class TaskDetailsPage extends Component {
       assignedUser = {
         name: taskDetails.assignedTo.name,
         email: taskDetails.assignedTo.email,
-        userId: taskDetails.assignedTo.userId,
+        userId: taskDetails.assignedTo.userId
       };
     }
 
@@ -299,7 +299,7 @@ class TaskDetailsPage extends Component {
       dueDate: taskDetails.dueDate,
       stage: taskDetails.stage,
       priority: taskDetails.priority,
-      description: taskDetails.description,
+      description: taskDetails.description
     };
 
     this.setState({ isFormSubmitting: true });
@@ -338,8 +338,8 @@ class TaskDetailsPage extends Component {
       deleteTask,
       history,
       match: {
-        params: { projectId, taskId },
-      },
+        params: { projectId, taskId }
+      }
     } = this.props;
 
     const callbackSuccess = () => {
@@ -355,8 +355,8 @@ class TaskDetailsPage extends Component {
     const {
       onClose,
       match: {
-        params: { projectId },
-      },
+        params: { projectId }
+      }
     } = this.props;
 
     const assignedUser =
@@ -489,7 +489,7 @@ class TaskDetailsPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  projects: getProjectsList(state),
+  projects: getProjectsList(state)
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -503,7 +503,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(updateTaskDetails(projectId, parentTaskId, data, callbackSuccess, callbackError)),
   deleteTask: (projectId, data, callbackSuccess, callbackError) =>
     dispatch(deleteTask(projectId, data, callbackSuccess, callbackError)),
-  updateChildrenTasks: (projectId, taskId, childTask) => dispatch(updateChildrenTasks(projectId, taskId, childTask)),
+  updateChildrenTasks: (projectId, taskId, childTask) => dispatch(updateChildrenTasks(projectId, taskId, childTask))
 });
 
 const ReduxTaskDetailsPage = connect(mapStateToProps, mapDispatchToProps)(TaskDetailsPage);

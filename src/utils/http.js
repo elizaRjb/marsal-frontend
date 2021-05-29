@@ -6,7 +6,7 @@ import { config } from 'config/config';
  * Http Utility.
  */
 const http = axios.create({
-  baseURL: config.apiEndpoint(),
+  baseURL: config.apiEndpoint()
 });
 
 export { http as default };

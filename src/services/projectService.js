@@ -43,7 +43,7 @@ export function getCurrentUserRoleInProject(projectId) {
 
   const {
     projects: { projects },
-    accountInfo: { userId },
+    accountInfo: { userId }
   } = state;
 
   const project = projects.find(item => {
@@ -72,7 +72,7 @@ export function getUserDetailsOfProject(projectId, userId) {
   }
 
   const {
-    projects: { projects },
+    projects: { projects }
   } = state;
 
   const project = projects.find(item => {
@@ -99,7 +99,7 @@ export function getMembersListInProject(projectId) {
   }
 
   const {
-    projects: { projects },
+    projects: { projects }
   } = state;
 
   const project = projects.find(item => {
@@ -124,7 +124,7 @@ export function getTagOfTaskInProject(projectId, taskId) {
   }
 
   const {
-    projects: { projects },
+    projects: { projects }
   } = state;
 
   const project = projects.find(item => {

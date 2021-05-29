@@ -6,5 +6,5 @@ export const PATHS = {
   PROJECT_BOARD_PATH: '/project/:projectId/board',
   PROJECT_TASK_PATH: '/project/:projectId/t/:taskId',
   PROJECT_SETTINGS_PATH: '/project/:projectId/settings',
-  NOT_FOUND_PATH: '*',
+  NOT_FOUND_PATH: '*'
 };

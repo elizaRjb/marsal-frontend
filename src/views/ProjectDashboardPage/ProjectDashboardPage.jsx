@@ -26,16 +26,16 @@ class ProjectDashboardPage extends Component {
       error: '',
       taskDetailsOpen: false,
       taskLoading: false,
-      taskDetails: {},
+      taskDetails: {}
     };
   }
 
   componentDidMount() {
     const {
       match: {
-        params: { projectId },
+        params: { projectId }
       },
-      getTasksList,
+      getTasksList
     } = this.props;
 
     const tasksList = this.getTasks(projectId);
@@ -60,8 +60,8 @@ class ProjectDashboardPage extends Component {
   componentDidUpdate(nextProps) {
     const {
       match: {
-        params: { projectId },
-      },
+        params: { projectId }
+      }
     } = this.props;
 
     if (nextProps.projects !== this.props.projects) {
@@ -90,8 +90,8 @@ class ProjectDashboardPage extends Component {
       createTask,
       history,
       match: {
-        params: { projectId },
-      },
+        params: { projectId }
+      }
     } = this.props;
 
     this.setState({ taskLoading: true });
@@ -143,8 +143,8 @@ class ProjectDashboardPage extends Component {
     const {
       taskOpen,
       match: {
-        params: { projectId },
-      },
+        params: { projectId }
+      }
     } = this.props;
 
     if (isLoading) {
@@ -198,14 +198,14 @@ class ProjectDashboardPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  projects: getProjectsList(state),
+  projects: getProjectsList(state)
 });
 
 const mapDispatchToProps = dispatch => ({
   getTasksList: (projectId, callbackSuccess, callbackError) =>
     dispatch(getTasksList(projectId, callbackSuccess, callbackError)),
   createTask: (projectId, parentTaskId, callbackSuccess, callbackError) =>
-    dispatch(createTask(projectId, parentTaskId, callbackSuccess, callbackError)),
+    dispatch(createTask(projectId, parentTaskId, callbackSuccess, callbackError))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectDashboardPage));

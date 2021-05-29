@@ -13,7 +13,7 @@ const AddProjectForm = props => {
     initialValues: {
       projectName: '',
       projectTag: '',
-      projectDescription: '',
+      projectDescription: ''
     },
     validationSchema: Yup.object({
       projectName: Yup.string().required('This field is required.'),
@@ -22,7 +22,7 @@ const AddProjectForm = props => {
         .max(5, 'Project tag should contain minimum 2 characters and maximum 5 characters.')
         .matches(/^[A-Za-z]+$/, 'Project tag should contain alphabets only.')
         .required('This field is required.'),
-      projectDescription: Yup.string(),
+      projectDescription: Yup.string()
     }),
     onSubmit: values => {
       const { projectName, projectTag, projectDescription } = values;
@@ -30,9 +30,9 @@ const AddProjectForm = props => {
       handleSubmit({
         name: projectName.trim(),
         tag: projectTag.trim().toUpperCase(),
-        description: projectDescription.trim(),
+        description: projectDescription.trim()
       });
-    },
+    }
   });
 
   return (

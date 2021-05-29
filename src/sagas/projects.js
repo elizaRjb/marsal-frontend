@@ -9,7 +9,7 @@ import {
   ADD_MEMBER_IN_PROJECT,
   setProjectsList,
   updateProjectsList,
-  updateMembersList,
+  updateMembersList
 } from 'actions/projects';
 
 function* handleGetProjectsListRequest(action) {

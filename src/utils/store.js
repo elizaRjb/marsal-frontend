@@ -17,7 +17,7 @@ const persistConfig = {
   key: 'root',
   storage,
   whiteList: persistWhitelist,
-  blackList: persistBlackList,
+  blackList: persistBlackList
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -30,6 +30,6 @@ sagaMiddleware.run(rootSaga);
 
 const persistor = persistStore(store);
 
-const reduxStore = { store, persistor }
+const reduxStore = { store, persistor };
 
 export default reduxStore;

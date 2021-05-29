@@ -10,7 +10,7 @@ import accountInfo from './account';
 const appReducer = combineReducers({
   auth,
   accountInfo,
-  projects,
+  projects
 });
 
 const rootReducer = (state, action) => {

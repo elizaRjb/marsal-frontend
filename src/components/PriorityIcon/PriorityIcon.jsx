@@ -5,7 +5,7 @@ const PRIORITY_STYLES = {
   minor: 'green',
   medium: 'yellow',
   major: 'orange',
-  critical: 'dark-orange',
+  critical: 'dark-orange'
 };
 
 const PriorityIcon = props => {

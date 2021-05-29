@@ -13,7 +13,7 @@ import {
   setTasksList,
   updateTasksList,
   removeTaskFromStore,
-  updateTaskDetailsInStore,
+  updateTaskDetailsInStore
 } from 'actions/tasks';
 
 /* Get tasks list */
@@ -229,6 +229,6 @@ export default function* taskSaga() {
     watchGetTaskDetailsRequest(),
     watchSubTasksRequest(),
     watchUpdateTaskDetailsRequest(),
-    watchDeleteTaskRequest(),
+    watchDeleteTaskRequest()
   ]);
 }
