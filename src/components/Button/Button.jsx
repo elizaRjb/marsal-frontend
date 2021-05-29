@@ -1,12 +1,12 @@
 import React from 'react';
 
 const Button = props => {
-  const { type = 'button', onClick, children, className, style, disabled, title } = props;
+  const { type = 'button', onClick, children, className, variant, disabled, title } = props;
 
   let buttonClassName = 'button ';
 
-  if (style) {
-    buttonClassName += `button--${style} `;
+  if (variant) {
+    buttonClassName += `button--${variant} `;
   }
 
   if (className) {

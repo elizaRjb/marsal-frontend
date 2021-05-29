@@ -63,6 +63,8 @@ class ProjectsListPage extends Component {
             <span>{project.name}</span>
           </Link>
         );
+
+        return null;
       });
     }
 

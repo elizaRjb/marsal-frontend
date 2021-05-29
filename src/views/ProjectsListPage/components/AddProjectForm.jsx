@@ -71,14 +71,14 @@ const AddProjectForm = props => {
       <div className="projects-list__modal-footer">
         <Button
           type="button"
-          style="ghost"
+          variant="ghost"
           className="projects-list__modal-btn"
           disabled={isLoading}
           onClick={handleCloseModal}
         >
           Cancel
         </Button>
-        <Button type="submit" style="primary" className="projects-list__modal-btn" disabled={isLoading}>
+        <Button type="submit" variant="primary" className="projects-list__modal-btn" disabled={isLoading}>
           {isLoading ? 'Creating...' : 'Create'}
         </Button>
       </div>

@@ -44,7 +44,7 @@ const LoginForm = props => {
         hasError={formik.errors.password && formik.touched.password}
         errorMessage={formik.errors.password}
       />
-      <Button type="submit" className="main-page__form-button" style="primary" disabled={isLoading}>
+      <Button type="submit" className="main-page__form-button" variant="primary" disabled={isLoading}>
         {isLoading ? 'LOGGING IN...' : 'LOG IN'}
       </Button>
     </form>

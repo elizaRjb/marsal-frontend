@@ -96,7 +96,7 @@ const SignUpForm = props => {
         hasError={formik.errors.confirmPassword && formik.touched.confirmPassword}
         errorMessage={formik.errors.confirmPassword}
       />
-      <Button type="submit" className="main-page__form-button" style="primary" disabled={isLoading}>
+      <Button type="submit" className="main-page__form-button" variant="primary" disabled={isLoading}>
         {isLoading ? 'CREATING ACCOUNT...' : 'CREATE ACCOUNT'}
       </Button>
     </form>

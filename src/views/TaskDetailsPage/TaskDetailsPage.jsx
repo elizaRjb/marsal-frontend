@@ -458,14 +458,14 @@ class TaskDetailsPage extends Component {
               <div className="task-details__body-btn-group">
                 <Button
                   type="button"
-                  style="ghost"
+                  variant="ghost"
                   className="task-details__form-btn"
                   disabled={isFormSubmitting}
                   onClick={this.handleCancel}
                 >
                   Cancel
                 </Button>
-                <Button type="submit" style="primary" className="task-details__form-btn" disabled={isFormSubmitting}>
+                <Button type="submit" variant="primary" className="task-details__form-btn" disabled={isFormSubmitting}>
                   {isFormSubmitting ? 'Saving...' : 'Save'}
                 </Button>
               </div>

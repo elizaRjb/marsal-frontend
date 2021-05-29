@@ -80,7 +80,7 @@ const ProjectSettingsForm = props => {
               errorMessage={formik.errors.email}
             />
           </div>
-          <Button type="submit" style="primary" className="project-settings__button" disabled={isLoading}>
+          <Button type="submit" variant="primary" className="project-settings__button" disabled={isLoading}>
             {isLoading ? 'Adding...' : 'Add'}
           </Button>
         </div>
